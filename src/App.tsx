@@ -26,7 +26,7 @@ export const App = () => {
           }
         });
       result.then((res) => {
-        setIpfsIds(prev => [...prev, res.data.IpfsHash])
+        setIpfsIds(prev => [res.data.IpfsHash, ...prev])
         console.log('ipfsIds', ipfsIds);
       })
     })
@@ -64,8 +64,8 @@ export const App = () => {
             ref={ref}
           />
           <div className="buttonsBlock">
-            <button onClick={() => ref.current.clear()}>clear</button>
-            <button onClick={() => getData()}>get</button>
+            <button className="button" onClick={() => ref.current.clear()}>clear</button>
+            <button className="button" onClick={() => getData()}>get</button>
           </div>
         </div>
 
