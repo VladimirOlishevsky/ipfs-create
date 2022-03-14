@@ -9,7 +9,7 @@ import {
 export const App = () => {
   return (
     <Router>
-      <div>
+      <div className="App">
         <nav>
           <ul>
             <li>

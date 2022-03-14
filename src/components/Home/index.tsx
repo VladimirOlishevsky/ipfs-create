@@ -44,7 +44,7 @@ export const Home = () => {
         }
       });
     result.then((res) => {
-      const adaptData = res.data.rows.sort((a,b) => a > b ? -1 : 1).map(el => el.ipfs_pin_hash);
+      const adaptData = res.data.rows.sort((a, b) => a > b ? -1 : 1).map(el => el.ipfs_pin_hash);
       setIpfsIds(adaptData)
     })
   }
@@ -56,34 +56,32 @@ export const Home = () => {
   console.log(ipfsIds);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="draw">
-          <SignatureCanvas
-            penColor='#FFA62B'
-            backgroundColor={"#264653"}
-            canvasProps={{ width: 350, height: 350 }}
-            ref={ref}
-          />
-          <div className="buttonsBlock">
-            <button className="button" onClick={() => ref.current.clear()}>clear</button>
-            <button className="button" onClick={() => getData()}>get</button>
-          </div>
+    <div className="home-root">
+      <div className="draw">
+        <SignatureCanvas
+          penColor='#FFA62B'
+          backgroundColor={"#264653"}
+          canvasProps={{ width: 350, height: 350 }}
+          ref={ref}
+        />
+        <div className="buttonsBlock">
+          <button className="button" onClick={() => ref.current.clear()}>clear</button>
+          <button className="button" onClick={() => getData()}>get</button>
         </div>
+      </div>
 
-        <div className="img-wrapper">
-          {ipfsIds.map(el => {
-            return (
-              <img
-                key={el}
-                className="img"
-                src={`https://gateway.pinata.cloud/ipfs/${el}?preview=1`}
-                // src={`https://ipfs.io/ipfs/${el}`}
-                alt="pinata-img" />
-            )
-          })}
-        </div>
-      </header>
+      <div className="img-wrapper">
+        {ipfsIds.map(el => {
+          return (
+            <img
+              key={el}
+              className="img"
+              // src={`https://gateway.pinata.cloud/ipfs/${el}?preview=1`}
+              src={`https://ipfs.io/ipfs/${el}`}
+              alt="pinata-img" />
+          )
+        })}
+      </div>
     </div>
   );
 }

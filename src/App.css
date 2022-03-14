@@ -1,25 +1,30 @@
-.App {
-  text-align: center;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
+.App {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 
-  gap: 32px;
   padding: 100px 0px;
+}
+
+.home-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+
+  padding: 100px 0px;
+  gap: 32px
 }
 
 .draw {
@@ -71,4 +76,16 @@ img {
     transition: all 250ms;
     user-select: none;
     width: auto;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 32px;
+  padding-inline-start: 0px
+}
+
+ul > li > a {
+  color: #fff;
+  text-decoration: none;
 }
