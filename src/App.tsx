@@ -1,4 +1,5 @@
 import { About, Home } from "components";
+import { useState } from "react";
 import {
   HashRouter as Router,
   Routes,
@@ -6,23 +7,37 @@ import {
   Link
 } from "react-router-dom";
 
+const tabs = [
+  {
+    title: 'Home',
+    route: '/',
+  },
+  {
+    title: 'About',
+    route: '/about'
+  }
+];
+
 export const App = () => {
+
+  const [activeTab, setActiveTab] = useState('');
+  console.log(activeTab)
+
   return (
     <Router>
       <div className="App">
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
+            {tabs.map(el => (
+              <li key={el.title}>
+                <Link onClick={() => setActiveTab(el.title)} to={el.route}>{el.title}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <Routes>
-            <Route path="/about" element={<About />} />
-            <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </Router>
