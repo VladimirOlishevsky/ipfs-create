@@ -12,8 +12,14 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
 
-  padding: 100px 0px;
+.active {
+  color: #e74344;
+  border-color: #e74344;
+  border-style: solid;
+  border-width: 1px 0px;
+  padding: 10px 0px;
 }
 
 .home-root {
@@ -23,7 +29,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 
-  padding: 100px 0px;
+  padding: 50px 0px;
   gap: 32px
 }
 

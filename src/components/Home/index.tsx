@@ -19,7 +19,7 @@ export const Home = () => {
     const fd = new FormData();
 
     canvas.toBlob((blob) => {
-      blob && fd.append('file', blob, 'signature.png')
+      blob && fd.append('file', blob, `signature${Math.random().toFixed(2)}.png`)
       const result = axios
         .post(url, fd, {
           maxContentLength: -1,

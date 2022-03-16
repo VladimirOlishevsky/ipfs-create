@@ -20,7 +20,7 @@ const tabs = [
 
 export const App = () => {
 
-  const [activeTab, setActiveTab] = useState('');
+  const [activeTab, setActiveTab] = useState('Home');
   console.log(activeTab)
 
   return (
@@ -30,7 +30,12 @@ export const App = () => {
           <ul>
             {tabs.map(el => (
               <li key={el.title}>
-                <Link onClick={() => setActiveTab(el.title)} to={el.route}>{el.title}</Link>
+                <Link
+                  className={el.title === activeTab ? 'active' : ''}
+                  onClick={() => setActiveTab(el.title)}
+                  to={el.route}>
+                  {el.title}
+                </Link>
               </li>
             ))}
           </ul>
