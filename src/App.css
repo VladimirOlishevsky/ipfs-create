@@ -53,6 +53,12 @@
   justify-content: center;
 }
 
+.vega {
+  margin-top: 50px;
+  width: 450px;
+  height: 450px;
+}
+
 img {
   width: 150px;
   height: 150px;

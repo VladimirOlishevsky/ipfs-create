@@ -1,10 +1,9 @@
+import gif from '../../vega.gif'
+
 export const About = () => {
-    return <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/xptdZKYdoZE"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen />
+    return (
+    <div>
+        <img className="vega" src={gif} alt="someone" />
+    </div>
+    )
 }
