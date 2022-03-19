@@ -6,7 +6,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-// updates
 
 const tabs = [
   {
@@ -22,7 +21,6 @@ const tabs = [
 export const App = () => {
 
   const [activeTab, setActiveTab] = useState('Home');
-  console.log(activeTab)
 
   return (
     <Router>
