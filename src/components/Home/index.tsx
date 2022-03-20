@@ -12,8 +12,6 @@ export const Home = () => {
   const url = "https://api.pinata.cloud/pinning/pinFileToIPFS";
   const ref = useRef() as React.MutableRefObject<SignatureCanvas>;
 
-  const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI2OGM3M2M4MS1iMDI4LTRiOTgtYWVkYS1kOWFjN2FlNGZlODciLCJlbWFpbCI6ImNvc3lzb2Z0d29ya0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlfSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiMjc0YjA0Yzg2YjIyNWJmOTdhOTQiLCJzY29wZWRLZXlTZWNyZXQiOiI5NDYxZTM1ZjIyMzkzZTZiNWNhZGM3YTRlOTQzNDc5YWVkMmYxZTE5OWIzYjA3YTFhZDkxYzQzM2NiNmUyMjViIiwiaWF0IjoxNjQ3MTc3ODE3fQ.9aQSkBUMwlMh9yqUtBIpitjBaWuA1IENA4YDkXhUOm4'
-
   const getData = async () => {
     const canvas = ref.current.getCanvas();
     const fd = new FormData();
@@ -24,7 +22,7 @@ export const Home = () => {
         .post(url, fd, {
           maxContentLength: -1,
           headers: {
-            'Authorization': `Bearer ${apiKey}`,
+            'Authorization': `Bearer ${process.env.REACT_APP_PINATA_JWT}`,
           }
         });
       result.then((res) => {
@@ -40,7 +38,7 @@ export const Home = () => {
       .get<IPinataListApi>(url2, {
         maxContentLength: -1,
         headers: {
-          'Authorization': `Bearer ${apiKey}`,
+          'Authorization': `Bearer ${process.env.REACT_APP_PINATA_JWT}`,
         }
       });
     result.then((res) => {
